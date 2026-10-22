@@ -253,3 +253,100 @@ for n in range(2, 10):
             break
     else:
         print(n, 'is a prime number')
+
+def http_error(status):
+    match status:
+        case 400:
+            return "Bad request"
+        case 401 | 403 | 404:
+            return "Not allowed"
+        case 418:
+            return "I'm a teapot"
+        case _:
+            return "Something's gone wrong"
+
+print(http_error(400))
+print(http_error(401))
+print(http_error(403))
+print(http_error(404))
+print(http_error(418))
+print(http_error(500))
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+def locate(point):
+    match point:
+        case Point(x=0, y=0):
+            print("Origin")
+        case Point(x=0, y=y):
+            print(f"Y-axis at {y}")
+        case Point(x=x, y=0):
+            print(f"X-axis at {x}")
+        case Point(x=x, y=y):
+            print(f"Point at ({x}, {y})")
+        case _:
+            print("Not a point")
+
+print(locate(Point(0, 0)))
+print(locate(Point(0, 1)))
+print(locate(Point(1, 0)))
+print(locate(Point(1, 1)))
+
+from enum import Enum
+
+class Color(Enum):
+    RED = 'red'
+    GREEN = 'green'
+    BLUE = 'blue'
+
+color = Color(input("Enter a color: "))
+
+match color:
+    case Color.RED:
+        print('I see red')
+    case Color.GREEN:
+        print('I see green')
+    case Color.BLUE:
+        print('I see blue')
+    case _:
+        print("Not a color")
+
+print(color)
+
+
+def fib(n):
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a + b
+    print()
+
+fib(1000)
+
+class Dog:
+    kind = 'cocaine'
+    def __init__(self, name):
+        self.name = name
+
+d = Dog('Rex')
+
+print(d.kind)
+print(d.name)
+
+class Cat:
+    tricks = []
+    def __init__(self, name):
+        self.name = name
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+fido = Cat('Fido')
+buddy = Cat('Buddy')
+fido.add_trick('roll over')
+buddy.add_trick('play dead')
+print(fido.tricks)
+print(buddy.tricks)
