@@ -1,4 +1,5 @@
 # False = 123
+import array
 import math
 from soupsieve import css_match
 from collections.abc import Iterable
@@ -117,3 +118,44 @@ print(f"Valid       : {is_valid}")
 print(f"Paid        : {is_paid}")
 print(f"Order status: {'Paid' if is_paid else 'Unpaid'}")
 print("============================")
+
+[
+    name
+    for module in [array, math]
+    for name in vars(module)
+    if name.startswith('a')
+]
+
+def make_list_of_all_a_attributes(iterable):
+    result = []
+    for module in iterable:
+        for name in vars(module):
+            if name.startswith('a'):
+                result.append(name)
+    return result
+
+print(make_list_of_all_a_attributes([array, math]))
+
+students = ["Sandi", "Fuad", "Kazan"]
+teachers = ["Pak Udin", "Pak Anto", "Bu Ratna"]
+lists_of_people = [students, teachers]
+
+def make_list_of_people(iterable):
+    result = []
+    for people in iterable:
+        result.extend(people)
+    return result
+
+print(make_list_of_people(lists_of_people))
+
+iterator = (x ** 2 for x in range(10))
+print(list(iterator))
+
+def make_list_of_squares_iterator(iterator):
+    for x in iterator:
+        yield x ** 2
+
+print(list(make_list_of_squares_iterator(iter(range(10)))))
+
+print(sum(x ** 2 for x in range(10)))
+print(sum((x ** 2 for x in range(10)), start=1000))
