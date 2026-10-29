@@ -1,0 +1,4 @@
+courier_id,courier_name,service_tier,vehicle_type,sla_hours
+CR-EXP-01,GoFast Express,Same-Day,Motorbike,8
+CR-NXT-02,Nusantara Cargo,Next-Day,Van,24
+CR-STD-03,SwiftLogix Standard,Standard,Truck,48

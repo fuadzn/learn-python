@@ -1,0 +1,5 @@
+warehouse_id,city,region,timezone,daily_capacity_orders,packing_stations
+WH-JKT-01,Jakarta,West Java/Jabodetabek,Asia/Jakarta,5000,18
+WH-BDG-02,Bandung,West Java,Asia/Jakarta,2500,10
+WH-SBY-03,Surabaya,East Java,Asia/Jakarta,3500,12
+WH-DPS-04,Denpasar,Bali,Asia/Makassar,1500,8
